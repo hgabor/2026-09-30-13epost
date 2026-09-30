@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Új tanuló felvétele</title>
+</head>
+<body>
+    <form method="post">
+        <label>
+            Név:<br>
+            <input type="text"
+                name="name"
+                value="<%= locals.newStudent?.name %>">
+        </label><br>
+
+        <label>
+            Életkor:<br>
+            <input type="number"
+            name="age"
+            value="<%= locals.newStudent?.age %>">
+        </label><br>
+
+        <% if (locals.error) { %>
+            <p style="color: red;">
+                <%= locals.error %>
+            </p>
+        <% } %>
+
+        <button type="submit">Új tanuló rögzítése</button>
+    </form>
+
+    <ul>
+        <% for (const s of students) { %>
+            <li><%= s.name %> (<%= s.age %>)</li>
+        <% } %>
+    </ul>
+</body>
+</html>
